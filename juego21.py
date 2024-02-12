@@ -16,10 +16,6 @@ def valorCarta(carta):
 
 def valorMano(mano):
     valor = sum(valorCarta(carta) for carta in mano)
-    ases = sum(1 for carta in mano if carta[0] == 'A')
-    while valor > 21 and ases:
-        valor -= 10
-        ases -= 1
     return valor
     
 
