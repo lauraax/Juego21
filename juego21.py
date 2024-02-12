@@ -16,17 +16,22 @@ def valorCarta(carta):
 
 def valorMano(mano):
     valor = sum(valorCarta(carta) for carta in mano)
+    ases = sum(1 for carta in mano if carta[0] == 'A')
+    while valor > 21 and ases:
+        valor -= 10
+        ases -= 1
     return valor
+    
 
 print("Bienvenido a Blackjack!")
 manoJugador = [mazo.pop(), mazo.pop()]
-print("Tu mano:", manoJugador)
+print("Tu mano: ", manoJugador)
 
 manoBanca = [mazo.pop(), mazo.pop()]
-print("Mano de la casa",[manoBanca[0],"\U00002753"])
+print("Mano de la casa: ",[manoBanca[0],"\U00002753"])
 
 while valorMano(manoJugador) < 21:
-    opcion = input("Digite 1 para PEDIR CARTA ó 2 para PLANTARSE ")
+    opcion = input("Digite 1 para PEDIR CARTA ó 2 para PLANTARSE:  ")
     if opcion == "1":
         manoJugador.append(mazo.pop())
         print("Tu mano:", manoJugador)
