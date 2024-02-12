@@ -10,15 +10,23 @@ def valorCarta(carta):
     if valor in ['J', 'Q', 'K']:
         return 10
     elif valor == 'A':
-        return 11
+        return 1
     else:
         return int(valor)
+    
+def a_en_mano(cartas):
+    for c in cartas:
+        if c[0]=="A":
+            return True
+    return False
 
 def valorMano(mano):
     valor = sum(valorCarta(carta) for carta in mano)
+    if a_en_mano(mano) and valor<=11:
+        valor+=10
     return valor
-    
 
+    
 print("Bienvenido a Blackjack!")
 manoJugador = [mazo.pop(), mazo.pop()]
 print("Tu mano: ", manoJugador)
@@ -35,7 +43,7 @@ while valorMano(manoJugador) < 21:
         break
 
 if valorMano(manoJugador) > 21:
-    print("Tu mano superó los 21 puntos, perdiste","\U0001F61E")
+    print("Tu mano superó los 21 puntos, perdiste","\U0001F61E",)
 else:
     while valorMano(manoBanca)<17:
         manoBanca.append(mazo.pop())
@@ -47,11 +55,11 @@ else:
     valorManoBanca=valorMano(manoBanca)
 
     if valorManoJugador>valorManoBanca or valorManoBanca>21:
-        print("FELICIDADES, LE GANASTE A LA BANCA")
+        print("FELICIDADES, LE GANASTE A LA BANCA","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
     elif valorManoJugador<valorManoBanca:
-        print("Tu mano superó los 21 puntos, perdiste","\U0001F61E")
+        print("Tu mano superó los 21 puntos, perdiste","\U0001F61E","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
     else:
-        print("EMPATE")
+        print("EMPATE, gana la Casa","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
 
 
    
