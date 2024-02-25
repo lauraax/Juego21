@@ -57,7 +57,7 @@ else:
     if valorManoJugador>valorManoBanca or valorManoBanca>21:
         print("FELICIDADES, LE GANASTE A LA BANCA","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
     elif valorManoJugador<valorManoBanca:
-        print("Tu mano superó los 21 puntos, perdiste","\U0001F61E","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
+        print("Tu mano es inferior a la de la casa, perdiste","\U0001F61E","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
     else:
         print("EMPATE, gana la Casa","\n Valor de tu mano: ",valorManoJugador,"\n Valor mano Casa: ", valorManoBanca)
 
